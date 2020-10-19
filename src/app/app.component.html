@@ -1,0 +1,56 @@
+<hello name="{{ name }}"></hello>
+<p>
+  Start editing to see some magic happen :)
+</p>
+<!-- 
+      -index : so thu tu item hien tai
+      - count: do dai cua array
+      - first,last: true vij tris dau -cuoi
+      - event -odd : true neu nhu item do la vi tri chan-le
+     -->
+<ul>
+  <ng-container *ngIf="users.length > 12; else noUser">
+  <li *ngFor="let user of users;index as idx; count as total; first as isFirst;last as isLast;even as isEven;odd as isOdd"> 
+  <span>{{user.name}}-{{user.id}} - {{user.phone}}  </span>
+  <br><br>
+  
+  <span> =>at {{idx}} out of {{total}}</span><br>
+
+  <span *ngIf="isFirst"> => This is first number</span><br>
+
+  <span *ngIf="isLast"> => This is Last number</span><br>
+
+  <span *ngIf="isEven"> => This is So Chan</span><br>
+
+  <span *ngIf="isOdd"> => This is So Le</span><br>
+  <br><br>
+  </li>
+  </ng-container>
+  <ng-template #noUser>No User</ng-template>
+</ul>
+
+
+<button *ngFor="let tag of tags;last as isLast" [class.right-margin]="!isLast">{{tag}}</button>
+
+
+<ul>
+
+<ng-template ngFor [ngForOf]="users" let-user let-idx="index" let-total="count" let-isFirst="first" let-isLast="last" let-isEven="even" let-isOdd="odd">
+
+<span>{{user.name}}-{{user.id}} - {{user.phone}}  </span>
+  <br><br>
+  
+  <span> =>at {{idx}} out of {{total}}</span><br>
+
+  <span *ngIf="isFirst"> => This is first number</span><br>
+
+  <span *ngIf="isLast"> => This is Last number</span><br>
+
+  <span *ngIf="isEven"> => This is So Chan</span><br>
+
+  <span *ngIf="isOdd"> => This is So Le</span><br>
+  <br><br>
+
+</ng-template>
+
+</ul>
